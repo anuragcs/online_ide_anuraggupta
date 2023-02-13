@@ -1,0 +1,34 @@
+
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div class = "online_editor">
+            <textarea id="html"></textarea>
+            <textarea id="css"></textarea>
+            <textarea id="js"></textarea>
+            <iframe id="coderun"></iframe>
+        </div>
+        
+        <script>
+            function run(){
+                let htmlcode=document.querySelector(".online_editor #html").value;
+                let csscode="<style>"+document.querySelector(".online_editor #css").value+"</style>";
+                let jscode=document.querySelector(".online_editor #js").value;
+                let output = document.querySelector(".online_editor #coderun");
+                output.contentDocument.body.innerHTML = htmlcode+csscode;
+                output.contentWindow.eval(jscode);
+
+
+
+            }
+            document.querySelector(".online_editor #html").addEventListener("keyup",run);
+            document.querySelector(".online_editor #css").addEventListener("keyup",run);
+            document.querySelector(".online_editor #js").addEventListener("keyup",run);
+        </script>
+
+        <!--use "!" for adding boiler plate  -->
+        
+    </body>
+</html>
